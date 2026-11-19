@@ -1,10 +1,10 @@
-# Adding a plugin
+# Add another Tokensaver plugin
 
-1. Keep the plugin in its **own** GitHub repository. Do not copy its source, native releases, or runtime dependencies into `Tokensaver`.
-2. Publish tested plugin metadata in that repository (`plugin.json`, and for Claude Code `.claude-plugin/plugin.json` where appropriate). Include `skills/` and MCP config if supported. Test its runtime setup independently.
-3. Add exactly one entry to `.agents/plugins/marketplace.json` using a documented Codex Git source type (`url` or `git-subdir`) and one entry to `.claude-plugin/marketplace.json` with a documented Claude Code Git source (`github` or `git-subdir`). Keep plugin IDs identical across platforms, with stable kebab-case names.
-4. Pin the source to a reviewed release ref or SHA when ready for stable distribution; do not assume that moving `main` will be safe for every user. The initial Docs entry tracks `main` while source packaging is being developed.
-5. Update the README plugin table and run the catalog validation script. Test real plugin installation and MCP startup on supported operating systems before claiming full compatibility.
-6. Each plugin owns its GitHub Actions, build artifacts, release notes, and cache. A release of one plugin must not rebuild or uninstall another.
+1. Develop each plugin in its own GitHub repository, owning its code, tests, binaries and releases. Do not copy engines into the `Tokensaver` marketplace.
+2. Provide a tested platform-appropriate plugin package. For Codex use `.codex-plugin/plugin.json`; for Claude Code use `.claude-plugin/plugin.json`. Where convenient, put both manifests and shared skill files in a single subdirectory.
+3. For a package hosted under a subdirectory, register `git-subdir` with its Git URL, the precise plugin directory, and a reviewed source ref or SHA. Add the matching ID to both marketplace catalogs.
+4. OpenCode uses its own plugin manager. Supply a separate npm/Git package as needed, and document its install command; don't invent an OpenCode `marketplace.json` format.
+5. Verify package completeness and any native runtime bootstrap, review its downloaded artifacts, update README and run `scripts/validate_marketplaces.py`.
+6. Test in actual Codex/Claude/OpenCode clients, including fresh installs, updates and coexistence with legacy versions. GitHub marketplace metadata alone cannot prove host/runtime behavior.
 
-The catalog does **not** execute install scripts. Platform-specific runtime downloads must be implemented and tested inside the independent plugin's distribution flow; never silently download executable code from a skill or MCP prompt.
+Do not trigger npm lifecycle scripts or untrusted downloads implicitly. For TokenSaver Docs, the CLI launchers pin the release version and validate SHA-256, and the existing conversion engine is kept in its independent repository.
