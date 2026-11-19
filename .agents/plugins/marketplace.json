@@ -1,0 +1,21 @@
+{
+  "name": "tokensaver",
+  "interface": {
+    "displayName": "Tokensaver"
+  },
+  "plugins": [
+    {
+      "name": "tokensaver-docs",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/winter0123/tokensaver-docs.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
