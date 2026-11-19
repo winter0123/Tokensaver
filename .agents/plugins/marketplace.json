@@ -7,8 +7,9 @@
     {
       "name": "tokensaver-docs",
       "source": {
-        "source": "url",
+        "source": "git-subdir",
         "url": "https://github.com/winter0123/tokensaver-docs.git",
+        "path": "./marketplace-plugin",
         "ref": "main"
       },
       "policy": {
