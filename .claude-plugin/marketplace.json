@@ -1,0 +1,25 @@
+{
+  "name": "tokensaver",
+  "description": "Independent AI token-optimization plugins maintained by winter0123.",
+  "owner": {
+    "name": "winter0123",
+    "url": "https://github.com/winter0123"
+  },
+  "plugins": [
+    {
+      "name": "tokensaver-docs",
+      "displayName": "TokenSaver Docs",
+      "source": {
+        "source": "github",
+        "repo": "winter0123/tokensaver-docs",
+        "ref": "main"
+      },
+      "description": "Convert documents and reuse bounded context instead of repeatedly reading the same source.",
+      "author": {
+        "name": "winter0123",
+        "url": "https://github.com/winter0123"
+      },
+      "category": "productivity"
+    }
+  ]
+}
