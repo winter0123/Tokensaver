@@ -10,8 +10,9 @@
       "name": "tokensaver-docs",
       "displayName": "TokenSaver Docs",
       "source": {
-        "source": "github",
-        "repo": "winter0123/tokensaver-docs",
+        "source": "git-subdir",
+        "url": "https://github.com/winter0123/tokensaver-docs.git",
+        "path": "marketplace-plugin",
         "ref": "main"
       },
       "description": "Convert documents and reuse bounded context instead of repeatedly reading the same source.",
